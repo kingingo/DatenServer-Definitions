@@ -4,6 +4,7 @@ public enum ClientType {
 	BUNGEECORD,
 	LOBBY,
 	ACARDE,
-	OTHER;
+	OTHER,
+	ALL;
 	private ClientType() {}
 }

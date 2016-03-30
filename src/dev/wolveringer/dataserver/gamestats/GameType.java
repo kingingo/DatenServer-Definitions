@@ -24,8 +24,8 @@ public enum GameType {
 	CaveWars(true, "CaveWars", "CW", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE, StatsKey.SHEEPWARS_KILLED_SHEEPS },true),
 	Masterbuilders(true, "Master Builders", "MB", ServerType.GAME, new StatsKey[] { StatsKey.LOSE, StatsKey.WIN},true),
 	Money(true, "Money", "MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS },false),
-	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false);
-
+	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false),
+	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false);
 	@Getter
 	private String typ;
 	@Getter
