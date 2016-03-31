@@ -4,5 +4,6 @@ public enum Setting {
 	PREMIUM_LOGIN,
 	PASSWORD,
 	LANGUAGE,
-	UUID;
+	UUID,
+	CURRUNT_IP;
 }
