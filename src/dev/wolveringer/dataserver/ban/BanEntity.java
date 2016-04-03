@@ -86,13 +86,13 @@ public class BanEntity {
 	}
 	
 	public boolean isActive(){
-		return end == -1 || System.currentTimeMillis()<end;
+		return end == -1 || System.currentTimeMillis() < end;
 	}
 	
 	public int matchPlayer(String ip,String name,UUID uuid){
 		int value = 0;
-		if(ip != null)
-			if(ip.equalsIgnoreCase(ip))
+		if(this.ip != null)
+			if(this.ip.equalsIgnoreCase(ip))
 				value++;
 		if(usernames.contains(name))
 			value++;
