@@ -45,5 +45,10 @@
 			<artifactId>snakeyaml</artifactId>
 			<version>1.17</version>
 		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-buffer</artifactId>
+			<version>4.0.34.Final</version>
+		</dependency>
 	</dependencies>
 </project>

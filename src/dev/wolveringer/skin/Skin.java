@@ -29,55 +29,62 @@ public class Skin {
 	}
 
 	public Skin(JSONObject raw_profile) {
-		try{
-			if(raw_profile.has("properties")){
+		try {
+			if (raw_profile.has("properties")) {
 				JSONArray properties = (JSONArray) raw_profile.get("properties");
-				for(int i = 0;i < properties.length();i++){ //TODO size == 1 ?????
+				for (int i = 0; i < properties.length(); i++) { //TODO size == 1 ?????
 					JSONObject property = (JSONObject) properties.get(i);
 					name = (String) property.get("name");
 					raw_value = (String) property.get("value");
 					signature = (String) property.get("signature");
 				}
 			}
-			if(raw_value != null)
+			if (raw_value != null)
 				value = new JSONObject(Base64Coder.decodeString(raw_value));
 			else
 				value = new JSONObject();
 			empty = false;
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			empty = true;
 		}
 	}
 
 	public Skin(String rawValue, String signature) {
+		try {
+			if (rawValue == null || rawValue.equalsIgnoreCase("undefined") || Base64Coder.decodeString(rawValue) == null) {
+				rawValue = Base64Coder.encodeString("{}");
+			}
+		} catch (IllegalArgumentException ex) {
+			rawValue = Base64Coder.encodeString("{}");
+		}
 		this.raw_value = rawValue;
 		this.value = new JSONObject(Base64Coder.decodeString(raw_value));
-		if(!signature.equalsIgnoreCase("undefined"))
+		if (!signature.equalsIgnoreCase("undefined"))
 			this.signature = signature;
 	}
 
 	public GameProfile applay(GameProfile g) {
-		if(g.getId() == null)
+		if (g.getId() == null)
 			g.setId(getUUID());
-		if(g.getName() == null)
+		if (g.getName() == null)
 			g.setName(getProfileName());
 		g.getProperties().clear();
-		g.getProperties().put(name, new Property(name, raw_value, isSignatureRequired()?signature:null));
+		g.getProperties().put(name, new Property(name, raw_value, isSignatureRequired() ? signature : null));
 		return g;
 	}
 
 	public String getSkinUrl() {
-		if(hasSkin())
+		if (hasSkin())
 			return value.getJSONObject("textures").getJSONObject("SKIN").getString("url");
 		return null;
 	}
 
 	public void setSkin(String url) {
 		empty = false;
-		if(!value.has("textures"))
+		if (!value.has("textures"))
 			value.put("value", new JSONObject());
-		if(!value.getJSONObject("textures").has("SKIN"))
+		if (!value.getJSONObject("textures").has("SKIN"))
 			value.getJSONObject("textures").put("SKIN", new JSONObject());
 		value.getJSONObject("textures").getJSONObject("SKIN").put("url", url);
 		updateRaw();
@@ -89,16 +96,16 @@ public class Skin {
 
 	public void setCape(String url) {
 		empty = false;
-		if(!value.has("textures"))
+		if (!value.has("textures"))
 			value.put("value", new JSONObject());
-		if(!value.getJSONObject("textures").has("CAPE"))
+		if (!value.getJSONObject("textures").has("CAPE"))
 			value.getJSONObject("textures").put("CAPE", new JSONObject());
 		value.getJSONObject("textures").getJSONObject("CAPE").put("url", url);
 		updateRaw();
 	}
 
 	public String getCapeUrl() {
-		if(hasCape())
+		if (hasCape())
 			return value.getJSONObject("textures").getJSONObject("CAPE").getString("url");
 		return null;
 	}
@@ -122,7 +129,7 @@ public class Skin {
 	}
 
 	public String getProfileName() {
-		if(!hasProfileName())
+		if (!hasProfileName())
 			return "undef";
 		return value.getString("profileName");
 	}
@@ -156,9 +163,9 @@ public class Skin {
 	}
 
 	public GameProfile toGameProfile() {
-		try{
+		try {
 			return applay(new GameProfile(getUUID(), getProfileName()));
-		}catch (Exception e){
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -167,7 +174,7 @@ public class Skin {
 		empty = false;
 		value.put("signatureRequired", flag);
 		updateRaw();
-		
+
 	}
 
 	public boolean isSignatureRequired() {
@@ -175,15 +182,16 @@ public class Skin {
 	}
 
 	public String getSignature() {
-		if(signature == null)
+		if (signature == null)
 			return "undefined";
 		return signature;
 	}
+
 	public void setSignature(String signature) {
 		this.signature = signature;
 		empty = false;
 	}
-	
+
 	public void setRawData(String string) {
 		this.raw_value = string;
 		this.value = new JSONObject(Base64Coder.decodeString(raw_value));
@@ -192,8 +200,8 @@ public class Skin {
 	public String getRawData() {
 		return raw_value;
 	}
-	
-	public Skin clone(){
+
+	public Skin clone() {
 		Skin _new = new Skin();
 		_new.empty = empty;
 		_new.name = name;
@@ -206,7 +214,7 @@ public class Skin {
 	public String getName() {
 		return name;
 	}
-	
+
 	@Override
 	public String toString() {
 		return value.toString();

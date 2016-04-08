@@ -27,12 +27,12 @@ public class SteveSkin extends Skin{
 
 	@Override
 	public String getRawData() {
-		return "";
+		return "undefined";
 	}
 	
 	@Override
 	public String getSignature() {
-		return "";
+		return "undefined";
 	}
 	
 	@Override
