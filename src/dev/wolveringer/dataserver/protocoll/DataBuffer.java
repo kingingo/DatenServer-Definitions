@@ -65,6 +65,14 @@ public class DataBuffer extends ByteBuf {
 		return this;
 	}
 
+	public <T> T readEnum(Class<T> clazz){
+		return (T) ((Enum[])clazz.getEnumConstants())[readInt()];
+	}
+	
+	public void writeEnum(Enum e){
+		writeInt(e.ordinal());
+	}
+	
 	public ByteBufAllocator alloc() {
 		return handle.alloc();
 	}
