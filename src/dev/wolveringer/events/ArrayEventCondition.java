@@ -13,7 +13,8 @@ public abstract class ArrayEventCondition<T> extends SerelizeableEventCondition<
 	
 	@Override
 	public void read(DataBuffer buffer) {
-		for(int i = 0;i<elements.size();i++)
+		int length = buffer.readInt();
+		for(int i = 0;i<length;i++)
 			elements.add(readElement(buffer));
 	}
 

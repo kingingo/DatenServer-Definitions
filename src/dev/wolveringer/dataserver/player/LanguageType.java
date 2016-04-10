@@ -3,7 +3,7 @@ package dev.wolveringer.dataserver.player;
 import lombok.Getter;
 
 public enum LanguageType {
-	DUTCH("nl",null), ITALIAN("it",null), JAPANESE("ja",null), SPANISH("es-Es",null), GERMAN("de","GERMAN"), ENGLISH("en","ENGLISH"), FRENCH("fr",null), TURKISH("tr",null);
+	DUTCH("nl",null), ITALIAN("it",null), JAPANESE("ja",null), SPANISH("es-ES",null), GERMAN("de","GERMAN"), ENGLISH("en","ENGLISH"), FRENCH("fr",null), TURKISH("tr",null);
 
 	@Getter
 	private String shortName;

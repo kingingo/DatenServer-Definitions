@@ -29,7 +29,7 @@ public enum GameType {
 	@Getter
 	private String typ;
 	@Getter
-	private String Kuerzel;
+	private String shortName;
 	@Getter
 	private StatsKey[] stats;
 	@Getter
@@ -38,11 +38,12 @@ public enum GameType {
 	private boolean solo = true;
 	@Getter
 	private boolean arcade;
+	
 	private GameType(boolean solo, String Typ, String Kuerzel, ServerType serverType, StatsKey[] stats,boolean arcadeGame) {
 		this.typ = Typ;
 		this.solo = solo;
 		this.stats = stats;
-		this.Kuerzel = Kuerzel;
+		this.shortName = Kuerzel;
 		this.serverType = serverType;
 		this.arcade = arcadeGame;
 	}
@@ -56,7 +57,7 @@ public enum GameType {
 		}
 
 		for (GameType t : GameType.values()) {
-			if (t.getKuerzel().replaceAll(" ", "").replaceAll("-", "").equalsIgnoreCase(g))
+			if (t.getShortName().replaceAll(" ", "").replaceAll("-", "").equalsIgnoreCase(g))
 				return t;
 		}
 		return null;
