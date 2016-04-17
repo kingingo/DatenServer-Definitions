@@ -25,7 +25,8 @@ public enum GameType {
 	Masterbuilders(true, "Master Builders", "MB", ServerType.GAME, new StatsKey[] { StatsKey.LOSE, StatsKey.WIN},true),
 	Money(true, "Money", "MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS },false),
 	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false),
-	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false);
+	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false),
+	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false);
 	@Getter
 	private String typ;
 	@Getter

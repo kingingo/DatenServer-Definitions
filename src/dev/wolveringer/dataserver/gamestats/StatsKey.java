@@ -39,7 +39,11 @@ public enum StatsKey {
 	TTT_DETECTIVE_PUNKTE("detectivepunkte int", "detectivepunkte", "Detective-Punkte", true, int.class),
 	TTT_TRAITOR_PUNKTE("traitorpunkte int", "traitorpunkte", "Traitor-Punkte", true, int.class),
 	COINS("coins int", "coins", "Coins", true, int.class),
-	GEMS("gems int", "gems", "Gems", true, int.class);
+	GEMS("gems int", "gems", "Gems", true, int.class),
+	VERSUS_ID("id INT","id","id",true,int.class),
+	VERSUS_CONTENT("content longtext","content","content",true,String.class),
+	VERSUS_ARMOR_CONTENT("armor_content longtext","armor_content","armor_content",true,String.class);
+	
 	@Getter
 	private String mySQLSyntax;
 	@Getter

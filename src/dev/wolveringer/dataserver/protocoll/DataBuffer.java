@@ -9,6 +9,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.GatheringByteChannel;
 import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.UUID;
 
 import io.netty.buffer.ByteBuf;
@@ -41,15 +42,21 @@ public class DataBuffer extends ByteBuf {
 		int length = readInt();
 		if (length == -1)
 			return null;
-		byte[] buffer = new byte[length];
-		readBytes(buffer);
-		return new String(buffer, 0, buffer.length, Charset.forName("UTF-8"));
+		if(length < 0 || length>1073741824){
+			System.err.println("To long string length?!");
+		}
+		char[] buffer = new char[length];
+		for(int i = 0;i<buffer.length;i++)
+			buffer[i] = (char) readShort();
+		return new String(buffer);
 	}
 
 	public DataBuffer writeString(String s) {
 		if (s != null) {
-			writeInt(s.getBytes(Charset.forName("UTF-8")).length);
-			writeBytes(s.getBytes(Charset.forName("UTF-8")));
+			char[] length = s.toCharArray();
+			writeInt(length.length);
+			for(char c : length)
+				writeShort(c);
 		} else
 			writeInt(-1);
 		return this;
