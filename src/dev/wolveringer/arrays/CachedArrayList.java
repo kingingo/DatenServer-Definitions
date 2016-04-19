@@ -138,6 +138,10 @@ public class CachedArrayList<E> extends ArrayList<E> {
 		}
 		return super.remove(o);
 	}
+	
+	public void resetTime(E element){
+		times.put(element, System.currentTimeMillis() + defaultTimeUnit.toMillis(defautTime));
+	}
 
 	@Override
 	public boolean contains(Object o) {

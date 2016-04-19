@@ -94,7 +94,7 @@ public class BanEntity {
 		if(this.ip != null)
 			if(this.ip.equalsIgnoreCase(ip))
 				value++;
-		if(usernames.contains(name))
+		if(usernames.contains(name.toLowerCase()))
 			value++;
 		if(uuids.contains(uuid))
 			value++;
@@ -107,7 +107,7 @@ public class BanEntity {
 	
 	@Override
 	public String toString() {
-		return "BanEntity [ip=" + ip + ", usernames=" + usernames + ", uuids=" + uuids + ", reson=" + reson + ", banner=" + banner + ", bannerUUID=" + bannerUUID + ", bannedUntil=" + bannedUntil + ", level=" + level + ", end=" + end + "]";
+		return "BanEntity [ip=" + ip + ", usernames=" + usernames + ", uuids=" + uuids + ", reson=" + reson + ", banner=" + banner + ", bannerUUID=" + bannerUUID + ", bannedUntil=" + bannedUntil + ", level=" + level + ", end=" + end + ",banned="+isActive()+"]";
 	}
 	public void setActive(boolean b) {
 		if(b == false)
