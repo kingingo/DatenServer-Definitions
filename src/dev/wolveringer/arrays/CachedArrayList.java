@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CachedArrayList<E> extends ArrayList<E> {
+	@FunctionalInterface
+	public static interface UnloadListener<E> {
+		public boolean canUnload(E element);
+	}
 	private static final long serialVersionUID = 1L;
 
 	private long nextUpdate = Long.MAX_VALUE;
@@ -17,6 +21,8 @@ public class CachedArrayList<E> extends ArrayList<E> {
 
 	private HashMap<E, Long> times = new HashMap<>();
 
+	private ArrayList<UnloadListener<E>> listener = new ArrayList<>(); 
+	
 	public CachedArrayList(int defautTime, TimeUnit defaultTimeUnit) {
 		this.defautTime = defautTime;
 		this.defaultTimeUnit = defaultTimeUnit;
@@ -215,10 +221,22 @@ public class CachedArrayList<E> extends ArrayList<E> {
 	private void updateTimes() {
 		long min = Long.MAX_VALUE;
 		long time = System.currentTimeMillis();
-		for (E e : times.keySet()) {
-			long l = times.get(e);
-			if (time > l)
-				super.remove(e);
+		HashMap<E, Long> ctimes  = new HashMap<>(times);
+		for (E e : ctimes.keySet()) {
+			long l = ctimes.get(e);
+			if (time > l){
+				boolean alowed = true;
+				for(UnloadListener<E> listener : new ArrayList<>(listener))
+					if(listener != null)
+						if(!listener.canUnload(e))
+							alowed = false;
+				if(alowed)
+					super.remove(e);
+				else{
+					resetTime(e);
+					l = ctimes.get(e);
+				}
+			}
 			else if (l < min)
 				min = l;
 		}
@@ -228,5 +246,12 @@ public class CachedArrayList<E> extends ArrayList<E> {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+	
+	public void addUnloadListener(UnloadListener<E> listener){
+		this.listener.add(listener);
+	}
+	public void removeUnloadListener(UnloadListener<E> listener){
+		this.listener.remove(listener);
 	}
 }

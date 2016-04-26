@@ -46,7 +46,13 @@ public class BanEntity {
 	@Getter
 	private long end;
 	
+	@Getter
+	private long date;
+	
 	private boolean needSave = false;
+	
+	@Getter
+	private boolean active = true;
 	
 	public BanEntity(String ip,String username,String uuid,String banner,String bannerUUID,String date,String reson,int level) {
 		this(ip, username, uuid, banner, bannerUUID, date, reson, level, -1);
@@ -55,7 +61,7 @@ public class BanEntity {
 		this.end = end;
 		this.ip = ip;
 		if(username != null && username.length() != 0 && !username.equalsIgnoreCase("null"))
-			this.usernames.add(username.toLowerCase());
+			this.usernames.add(username);
 		if(uuid != null && uuid.length() != 0 && !uuid.equalsIgnoreCase("null"))
 			this.uuids.add(UUID.fromString(uuid));
 		this.banner = banner;
@@ -64,13 +70,21 @@ public class BanEntity {
 		this.bannedUntil = new Date(1950, 0, 0); //TODO paradise
 		this.level = level;
 		this.reson = reson;
+		try{
+			this.date = Long.parseLong(date);
+		}catch(Exception e){
+			this.date =System.currentTimeMillis();
+			needSave = true;
+		}
+		if(!isActive())
+			needSave = true;
 	}
 	public BanEntity(String ip,String username,String uuid,String banner,String bannerUUID,String bannerIp,String date,String reson,int level,long end) {
 		this.end = end;
 		this.ip = ip;
 		this.bannerIp = bannerIp;
 		if(username != null && username.length() != 0 && !username.equalsIgnoreCase("null"))
-			this.usernames.add(username.toLowerCase());
+			this.usernames.add(username);
 		if(uuid != null && uuid.length() != 0 && !uuid.equalsIgnoreCase("null"))
 			this.uuids.add(UUID.fromString(uuid));
 		this.banner = banner;
@@ -79,6 +93,12 @@ public class BanEntity {
 		this.bannedUntil = new Date(1950, 0, 0); //TODO paradise
 		this.level = level;
 		this.reson = reson;
+		try{
+			this.date = Long.parseLong(date);
+		}catch(Exception e){
+			this.date =System.currentTimeMillis();
+			needSave = true;
+		}
 	}
 	
 	public boolean isTempBanned(){
@@ -86,16 +106,20 @@ public class BanEntity {
 	}
 	
 	public boolean isActive(){
-		return end == -1 || System.currentTimeMillis() < end;
+		return (end == -1 || System.currentTimeMillis() < end) && active;
 	}
 	
 	public int matchPlayer(String ip,String name,UUID uuid){
 		int value = 0;
 		if(this.ip != null)
-			if(this.ip.equalsIgnoreCase(ip))
+			if(!this.ip.equalsIgnoreCase("undefined") && !(this.ip.equalsIgnoreCase("")) && !(this.ip.equalsIgnoreCase("null")))
+				if(this.ip.equalsIgnoreCase(ip))
+					value++;
+		for(String u : usernames)
+			if(u.equalsIgnoreCase(name)){
 				value++;
-		if(usernames.contains(name.toLowerCase()))
-			value++;
+				break;
+			}
 		if(uuids.contains(uuid))
 			value++;
 		return value;
@@ -109,11 +133,8 @@ public class BanEntity {
 	public String toString() {
 		return "BanEntity [ip=" + ip + ", usernames=" + usernames + ", uuids=" + uuids + ", reson=" + reson + ", banner=" + banner + ", bannerUUID=" + bannerUUID + ", bannedUntil=" + bannedUntil + ", level=" + level + ", end=" + end + ",banned="+isActive()+"]";
 	}
-	public void setActive(boolean b) {
-		if(b == false)
-			end = 0;
-		else
-			end = -1;
+	public void setActive(boolean flag) {
+		active = flag;
 		needSave = true;
 	}
 	public void setReson(String reson){
