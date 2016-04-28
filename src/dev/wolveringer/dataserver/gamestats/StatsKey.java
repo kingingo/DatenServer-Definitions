@@ -42,8 +42,8 @@ public enum StatsKey {
 	GEMS("gems int", "gems", "Gems", true, int.class),
 	VERSUS_ID("id INT","id","id",true,int.class),
 	VERSUS_CONTENT("content longtext","content","content",true,String.class),
-	VERSUS_ARMOR_CONTENT("armor_content longtext","armor_content","armor_content",true,String.class);
-	
+	VERSUS_ARMOR_CONTENT("armor_content longtext","armor_content","armor_content",true,String.class),
+	TEAM_ID("teamId int","int","teamId",true,int.class);
 	@Getter
 	private String mySQLSyntax;
 	@Getter

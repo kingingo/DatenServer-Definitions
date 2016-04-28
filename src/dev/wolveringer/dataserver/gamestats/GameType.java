@@ -27,7 +27,9 @@ public enum GameType {
 	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false),
 	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false),
 	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false),
+	PLAYER_TEAMS_ACARDE(false,"playerteams_acarde","playerteams_acarde",ServerType.GAME,new StatsKey[] { StatsKey.TEAM_ID},false);
 	
+	/*
 	GUNGAME_TEAMS(true, "GunGame-Server", "teams_GunGame", ServerType.GUNGAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true),
 	SurvivalGames1vs1_TEAMS(false, "SurvivalGames1vs1", "teams_SG1vs1", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE },true),
 	BedWars1vs1_TEAMS(false, "BedWars1vs1", "teams_BW1vs1", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE, StatsKey.BEDWARS_ZERSTOERTE_BEDs },true),
@@ -46,12 +48,13 @@ public enum GameType {
 	PVP_TEAMS(true, "PvP-Server", "teams_PvP", ServerType.PVP, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.MONEY, StatsKey.ELO, StatsKey.TIME_ELO, StatsKey.TIME },true),
 	SKYBLOCK_TEAMS(true, "SkyBlock", "teams_Sky", ServerType.SKYBLOCK, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.MONEY },true),
 	WARZ_TEAMS(true, "WarZ-Server", "teams_WarZ", ServerType.WARZ, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.ANIMAL_KILLS, StatsKey.ANIMAL_DEATHS, StatsKey.MONSTER_KILLS, StatsKey.MONSTER_DEATHS },true),
-	CaveWars_TEAMS(true, "CaveWars", "teams_CW", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE, StatsKey.SHEEPWARS_KILLED_SHEEPS },true),
+	//CaveWars_TEAMS(true, "CaveWars", "teams_CW", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE, StatsKey.SHEEPWARS_KILLED_SHEEPS },true),
 	Masterbuilders_TEAMS(true, "Master Builders", "teams_MB", ServerType.GAME, new StatsKey[] { StatsKey.LOSE, StatsKey.WIN},true),
 	Money_TEAMS(true, "Money", "teams_MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS },false),
 	NONE_TEAMS(true, "NONE", "teams_FAIL", ServerType.GAME, null,false),
 	ALL_TEAMS(true, "NONE", "teams_FAIL", ServerType.GAME, null,false),
 	VERSUS_KITS_TEAMS(false,"vs_kits_error","teams_VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false);
+	*/
 	
 	@Getter
 	private String typ;
