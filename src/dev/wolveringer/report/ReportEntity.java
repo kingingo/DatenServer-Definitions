@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 
 
@@ -17,6 +18,7 @@ public class ReportEntity {
 	private String reson;
 	private String infos;
 	private long time;
+	@Setter
 	private boolean open;
 	private ArrayList<ReportWorker> workers;
 }
