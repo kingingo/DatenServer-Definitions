@@ -43,7 +43,10 @@ public enum StatsKey {
 	VERSUS_ID("id INT","id","id",true,int.class),
 	VERSUS_CONTENT("content longtext","content","content",true,String.class),
 	VERSUS_ARMOR_CONTENT("armor_content longtext","armor_content","armor_content",true,String.class),
-	TEAM_ID("teamId int","int","teamId",true,int.class);
+	TEAM_NAME("name varchar(30)","name","name",true,String.class),
+	TEAM_PREFIX("prefix varchar(30)","prefix","prefix",true,String.class),
+	TEAM_RANK("team_rank int","team_rank","team_rank",true,int.class),
+	TEAM_ID("teamId int","teamId","teamId",true,int.class);
 	@Getter
 	private String mySQLSyntax;
 	@Getter
