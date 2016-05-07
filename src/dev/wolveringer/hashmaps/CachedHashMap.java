@@ -12,6 +12,7 @@ import dev.wolveringer.arrays.CachedArrayList;
 
 public class CachedHashMap<K,V> extends HashMap<K, V> {
 	private CachedArrayList<K> keys;
+	private boolean locked = false;
 	
 	public CachedHashMap(int defautTime, TimeUnit defaultTimeUnit) {
 		keys = new CachedArrayList<>(defautTime, defaultTimeUnit);
@@ -33,10 +34,11 @@ public class CachedHashMap<K,V> extends HashMap<K, V> {
 	@Override
 	public V get(Object key) {
 		V out = super.get(key);
-		if(!keys.contains(key)){
-			out = null;
-			super.remove(key);
-		}
+		if(!locked)
+			if(!keys.contains(key)){
+				out = null;
+				super.remove(key);
+			}
 		return out;
 	}
 	
@@ -76,7 +78,8 @@ public class CachedHashMap<K,V> extends HashMap<K, V> {
 	
 	@Override
 	public Set<K> keySet() {
-		keys.update();
+		if(!locked)
+			keys.update();
 		return new HashSet<>(keys);
 	}
 	
@@ -85,5 +88,13 @@ public class CachedHashMap<K,V> extends HashMap<K, V> {
 		for(K key : super.keySet())
 			get(key); //Update value
 		return super.values();
+	}
+
+	public void lock() {
+		locked = true;
+		keys.update();
+	}
+	public void unlock(){
+		locked = false;
 	}
 }
