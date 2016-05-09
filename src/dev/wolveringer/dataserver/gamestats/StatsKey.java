@@ -4,7 +4,6 @@ import dev.wolveringer.gamestats.Statistic;
 import lombok.Getter;
 
 public enum StatsKey {
-	PROPERTIES("properties longtext","properties","Properties", true, String.class),
 	INVENTORY("inventory varchar(1000)", "inventory", "Inventory", true, String.class),
 	TIME("time varchar(50)", "time", "Time", true, String.class),
 	TIME_ELO("time_elo double", "time_elo", "Elo", true, double.class),
@@ -47,7 +46,9 @@ public enum StatsKey {
 	TEAM_NAME("name varchar(30)","name","name",true,String.class),
 	TEAM_PREFIX("prefix varchar(30)","prefix","prefix",true,String.class),
 	TEAM_RANK("team_rank int","team_rank","team_rank",true,int.class),
-	TEAM_ID("teamId int","teamId","teamId",true,int.class);
+	TEAM_ID("teamId int","teamId","teamId",true,int.class),
+	PROPERTIES("properties longtext","properties","Properties", true, String.class),
+	BOOSTER_TIME("boosterTime int","boosterTime","boosterTime",true,int.class);
 	@Getter
 	private String mySQLSyntax;
 	@Getter

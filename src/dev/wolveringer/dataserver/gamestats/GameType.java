@@ -6,7 +6,6 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum GameType {
-	PROPERTIES(false,"properties","properties",ServerType.GAME,new StatsKey[]{StatsKey.PROPERTIES}, false, null),
 	TEAMS_ACARDE(false,"teams_acarde","teams_acarde",ServerType.GAME,new StatsKey[] {StatsKey.TEAM_ID, StatsKey.TEAM_NAME, StatsKey.TEAM_PREFIX},false, null),
 	TEAMS_PVP(false,"teams_pvp","teams_pvp",ServerType.GAME,new StatsKey[] {StatsKey.TEAM_ID, StatsKey.TEAM_NAME, StatsKey.TEAM_PREFIX, StatsKey.WORLD, StatsKey.LOC_X, StatsKey.LOC_Y, StatsKey.LOC_Z},false, null),
 	TEAMS_SKYBLOCK(false,"teams_skyblock","teams_skyblock",ServerType.GAME,new StatsKey[] {StatsKey.TEAM_ID, StatsKey.TEAM_NAME, StatsKey.TEAM_PREFIX, StatsKey.WORLD, StatsKey.LOC_X, StatsKey.LOC_Z},false, null),
@@ -34,7 +33,9 @@ public enum GameType {
 	Money(true, "Money", "MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS },false, null),
 	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false, null),
 	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false, null),
-	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false, null);
+	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false, null),
+	PROPERTIES(false,"properties","properties",ServerType.GAME,new StatsKey[]{StatsKey.PROPERTIES}, false, null),
+	BOOSTER(false,"boosters","boosters",ServerType.ALL,new StatsKey[]{StatsKey.BOOSTER_TIME}, false, null);
 	
 	/*
 	GUNGAME_TEAMS(true, "GunGame-Server", "teams_GunGame", ServerType.GUNGAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true),
