@@ -3,6 +3,7 @@ package dev.wolveringer.events;
 import java.lang.reflect.Constructor;
 
 import dev.wolveringer.dataserver.protocoll.DataBuffer;
+import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
 import dev.wolveringer.events.player.PlayerServerSwitchEvent;
 
 public class EventRegistry {
@@ -48,5 +49,6 @@ public class EventRegistry {
 	
 	static {
 		registerEvent(0x00, PlayerServerSwitchEvent.class);
+		registerEvent(0x01, BoosterStatusChangeEvent.class);
 	}
 }

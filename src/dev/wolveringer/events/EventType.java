@@ -1,10 +1,12 @@
 package dev.wolveringer.events;
 
+import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
 import dev.wolveringer.events.player.PlayerServerSwitchEvent;
 import lombok.Getter;
 
 public enum EventType {
-	SERVER_SWITCH(PlayerServerSwitchEvent.class,EventConditions.SERVER_NAME_ARRAY,EventConditions.CLIENT_TYPE_ARRAY,EventConditions.GAME_TYPE_ARRAY,EventConditions.PLAYERS_BACKLIST,EventConditions.PLAYERS_WHITELIST);
+	SERVER_SWITCH(PlayerServerSwitchEvent.class,EventConditions.SERVER_NAME_ARRAY,EventConditions.CLIENT_TYPE_ARRAY,EventConditions.GAME_TYPE_ARRAY,EventConditions.PLAYERS_BACKLIST,EventConditions.PLAYERS_WHITELIST),
+	BOOSTER_SWITCH(BoosterStatusChangeEvent.class,EventConditions.BOOSTER_TYPE);
 	
 	@Getter
 	private EventConditions[] avariableConditions;

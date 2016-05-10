@@ -2,6 +2,7 @@ package dev.wolveringer.events;
 
 import java.util.UUID;
 
+import dev.wolveringer.booster.BoosterType;
 import dev.wolveringer.client.connection.ClientType;
 import dev.wolveringer.dataserver.gamestats.GameType;
 import dev.wolveringer.dataserver.gamestats.StatsKey;
@@ -162,6 +163,32 @@ public enum EventConditions {
 		@Override
 		public Class<StatsKey> getConditionType() {
 			return StatsKey.class;
+		}
+	},
+	BOOSTER_TYPE {
+		@Override
+		public EventCondition createCondition() {
+			return new ChangeableEventCondition<BoosterType>(getConditionType()) {
+				@Override
+				public BoosterType readElement(DataBuffer buffer) {
+					return buffer.readEnum(BoosterType.class);
+				}
+
+				@Override
+				public void writeElement(BoosterType obj, DataBuffer buffer) {
+					buffer.writeEnum(obj);
+				}
+
+				@Override
+				public EventConditions getCondition() {
+					return BOOSTER_TYPE;
+				}
+			};
+		}
+
+		@Override
+		public Class<BoosterType> getConditionType() {
+			return BoosterType.class;
 		}
 	};
 	
