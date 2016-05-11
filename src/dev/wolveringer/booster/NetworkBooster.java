@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Getter
 public class NetworkBooster {
 	public static class NotActiveBooster extends NetworkBooster {
 		public NotActiveBooster(BoosterType type) {
@@ -15,9 +14,17 @@ public class NetworkBooster {
 		}
 	}
 
+	@Getter
 	private long start;
+	@Getter
 	private int time;
+	@Getter
 	private int player;
+	@Getter
 	private BoosterType type;
 	private boolean active;
+	
+	public boolean isActive(){
+		return active && start+time>System.currentTimeMillis();
+	}
 }
