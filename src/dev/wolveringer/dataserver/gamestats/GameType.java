@@ -30,7 +30,7 @@ public enum GameType {
 	WARZ(true, "WarZ-Server", "WarZ", ServerType.WARZ, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.ANIMAL_KILLS, StatsKey.ANIMAL_DEATHS, StatsKey.MONSTER_KILLS, StatsKey.MONSTER_DEATHS },true,TEAMS_WARZ),
 	CaveWars(true, "CaveWars", "CW", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE, StatsKey.SHEEPWARS_KILLED_SHEEPS },true, TEAMS_ACARDE),
 	Masterbuilders(true, "Master Builders", "MB", ServerType.GAME, new StatsKey[] { StatsKey.LOSE, StatsKey.WIN},true, TEAMS_ACARDE),
-	Money(true, "Money", "MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS },false, null),
+	Money(true, "Money", "MONEY", ServerType.BUNGEECORD, new StatsKey[] { StatsKey.COINS, StatsKey.GEMS,StatsKey.MYSTERY_SHARPS },false, null),
 	NONE(true, "NONE", "FAIL", ServerType.GAME, null,false, null),
 	ALL(true, "NONE", "FAIL", ServerType.GAME, null,false, null),
 	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false, null),
