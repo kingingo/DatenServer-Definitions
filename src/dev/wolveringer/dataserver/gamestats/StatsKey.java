@@ -48,7 +48,8 @@ public enum StatsKey {
 	TEAM_RANK("team_rank int","team_rank","team_rank",true,int.class),
 	TEAM_ID("teamId int","teamId","teamId",true,int.class),
 	PROPERTIES("properties longtext","properties","Properties", true, String.class),
-	BOOSTER_TIME("boosterTime int","boosterTime","boosterTime",true,int.class);
+	BOOSTER_TIME("boosterTime int","boosterTime","boosterTime",true,int.class),
+	MYSTERY_SHARPS("mysterySharps int","mysterySharps","MysterySharps",true,int.class);
 	@Getter
 	private String mySQLSyntax;
 	@Getter
