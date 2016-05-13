@@ -73,17 +73,9 @@ public enum GameType {
 	private GameType teamType;
 
 	public static GameType get(String g) {
-		g = g.replaceAll("-", "");
-		g = g.replaceAll(" ", "");
-		for (GameType t : GameType.values()) {
-			if (t.getTyp().replaceAll(" ", "").replaceAll("-", "").equalsIgnoreCase(g))
+		for(GameType t : values())
+			if(t.name().equalsIgnoreCase(g))
 				return t;
-		}
-
-		for (GameType t : GameType.values()) {
-			if (t.getShortName().replaceAll(" ", "").replaceAll("-", "").equalsIgnoreCase(g))
-				return t;
-		}
 		return null;
 	}
 	
