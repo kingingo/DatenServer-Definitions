@@ -57,7 +57,7 @@ public class Statistic {
 	public int asInt() {
 		return (int) Integer.valueOf(output.toString());
 	}
-
+	
 	public double asDouble() {
 		return (double) Double.valueOf(output.toString());
 	}

@@ -49,7 +49,12 @@ public enum StatsKey {
 	TEAM_ID("teamId int","teamId","teamId",true,int.class),
 	PROPERTIES("properties longtext","properties","Properties", true, String.class),
 	BOOSTER_TIME("boosterTime int","boosterTime","boosterTime",true,int.class),
-	MYSTERY_SHARPS("mysterySharps int","mysterySharps","MysterySharps",true,int.class);
+	MYSTERY_SHARPS("mysterySharps int","mysterySharps","MysterySharps",true,int.class),
+	SKY_TIME("skyTime timestamp","skyTime","SkyTime",true,int.class),
+	PVP_TIME("pvpTime timestamp","pvpTime","PvPTime",true,int.class),
+	GUNGAME_TIME("gungameTime timestamp","gungameTime","GunGameTime",true,int.class),
+	GAME_TIME("gameTime timestamp","gameTime","GameTime",true,int.class);
+	
 	@Getter
 	private String mySQLSyntax;
 	@Getter
