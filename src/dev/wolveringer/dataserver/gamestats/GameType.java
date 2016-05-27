@@ -39,7 +39,8 @@ public enum GameType {
 	PROPERTIES(false,"properties","properties",ServerType.GAME,new StatsKey[]{StatsKey.PROPERTIES}, false, null),
 	BOOSTER(false,"boosters","boosters",ServerType.ALL,new StatsKey[]{StatsKey.BOOSTER_TIME}, false, null),
 	TIME(false,"time","time",ServerType.ALL,new StatsKey[]{StatsKey.SKY_TIME,StatsKey.PVP_TIME,StatsKey.GUNGAME_TIME,StatsKey.GAME_TIME},false,null),
-	SideWar(false,"SideWar","SWAR",ServerType.GAME,new StatsKey[]{StatsKey.KILLS,StatsKey.DEATHS,StatsKey.WIN,StatsKey.LOSE},true, TEAMS_ACARDE);
+	SideWar(false,"SideWar","SWAR",ServerType.GAME,new StatsKey[]{StatsKey.KILLS,StatsKey.DEATHS,StatsKey.WIN,StatsKey.LOSE},true, TEAMS_ACARDE),
+	CREATIVE(true, "Creative-Server", "Creative", ServerType.CREATIVE, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true, null);
 
 	private boolean solo = true;
 	private String typ;
