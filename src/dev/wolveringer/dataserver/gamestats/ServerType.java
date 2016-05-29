@@ -9,7 +9,8 @@ public enum ServerType {
 	SKYBLOCK("skyblock"),
 	BUNGEECORD("bungeecord"),
 	GAME("game"),
-	ALL("all");
+	ALL("all"),
+	CREATIVE("creative");
 
 	@Getter
 	private String name;
