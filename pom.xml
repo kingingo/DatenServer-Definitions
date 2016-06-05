@@ -50,5 +50,10 @@
 			<artifactId>netty-buffer</artifactId>
 			<version>4.0.34.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>dev.wolveringer.lib</groupId>
+			<artifactId>NBTTag</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 	</dependencies>
 </project>

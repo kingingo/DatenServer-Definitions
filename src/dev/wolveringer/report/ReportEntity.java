@@ -19,10 +19,10 @@ public class ReportEntity {
 	private String infos;
 	private long time;
 	@Setter
-	private int state;
+	private int state = 1;
 	private ArrayList<ReportWorker> workers;
 	
 	public boolean isOpen(){
-		return state == -1;
+		return state == 1;
 	}
 }

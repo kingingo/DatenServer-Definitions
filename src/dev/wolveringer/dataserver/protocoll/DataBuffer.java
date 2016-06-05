@@ -11,6 +11,9 @@ import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
 import java.util.UUID;
 
+import dev.wolveringer.nbt.NBTCompressedStreamTools;
+import dev.wolveringer.nbt.NBTReadLimiter;
+import dev.wolveringer.nbt.NBTTagCompound;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.ByteBufProcessor;
@@ -69,6 +72,31 @@ public class DataBuffer extends ByteBuf {
 		writeLong(uuid.getMostSignificantBits());
 		writeLong(uuid.getLeastSignificantBits());
 		return this;
+	}
+	
+	public void writeNBTTag(NBTTagCompound nbt){
+		if(nbt == null)
+			writeInt(-1);
+		try {
+			byte[] bytes = NBTCompressedStreamTools.toByte(nbt);
+			writeInt(bytes.length);
+			writeBytes(bytes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public NBTTagCompound readNBTTag(){
+		int length = readInt();
+		if(length == -1)
+			return null;
+		byte[] data = readBytes(length).array();
+		try {
+			return NBTCompressedStreamTools.read(data, NBTReadLimiter.unlimited);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public <T> T readEnum(Class<T> clazz){
