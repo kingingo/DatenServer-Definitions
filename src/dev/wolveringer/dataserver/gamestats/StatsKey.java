@@ -53,7 +53,9 @@ public enum StatsKey {
 	SKY_TIME("skyTime int","skyTime","SkyTime",true,int.class),
 	PVP_TIME("pvpTime int","pvpTime","PvPTime",true,int.class),
 	GUNGAME_TIME("gungameTime int","gungameTime","GunGameTime",true,int.class),
-	GAME_TIME("gameTime int","gameTime","GameTime",true,int.class);
+	GAME_TIME("gameTime int","gameTime","GameTime",true,int.class),
+	CREATIVE_TIME("creativeTime int","creativeTime","creativeTime",true,int.class),
+	WARZ_TIME("warzTime int","warzTime","warzTime",true,int.class);
 	
 	@Getter
 	private String mySQLSyntax;

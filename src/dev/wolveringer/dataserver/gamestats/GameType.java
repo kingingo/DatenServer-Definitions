@@ -38,7 +38,7 @@ public enum GameType {
 	VERSUS_KITS(false,"vs_kits_error","VS_kits",ServerType.GAME,new StatsKey[] { StatsKey.VERSUS_ID, StatsKey.VERSUS_CONTENT,StatsKey.VERSUS_ARMOR_CONTENT},false, null),
 	PROPERTIES(false,"properties","properties",ServerType.GAME,new StatsKey[]{StatsKey.PROPERTIES}, false, null),
 	BOOSTER(false,"boosters","boosters",ServerType.ALL,new StatsKey[]{StatsKey.BOOSTER_TIME}, false, null),
-	TIME(false,"time","time",ServerType.ALL,new StatsKey[]{StatsKey.SKY_TIME,StatsKey.PVP_TIME,StatsKey.GUNGAME_TIME,StatsKey.GAME_TIME},false,null),
+	TIME(false,"time","time",ServerType.ALL,new StatsKey[]{StatsKey.SKY_TIME,StatsKey.PVP_TIME,StatsKey.GUNGAME_TIME,StatsKey.GAME_TIME,StatsKey.CREATIVE_TIME,StatsKey.WARZ_TIME},false,null),
 	SideWar(false,"SideWar","SWAR",ServerType.GAME,new StatsKey[]{StatsKey.KILLS,StatsKey.DEATHS,StatsKey.WIN,StatsKey.LOSE},true, TEAMS_ACARDE),
 	CREATIVE(true, "Creative-Server", "Creative", ServerType.CREATIVE, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true, null);
 

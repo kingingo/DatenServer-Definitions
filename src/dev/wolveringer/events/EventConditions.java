@@ -190,6 +190,32 @@ public enum EventConditions {
 		public Class<BoosterType> getConditionType() {
 			return BoosterType.class;
 		}
+	},
+	GILDE_UUID {
+		@Override
+		public EventCondition createCondition() {
+			return new ChangeableEventCondition<UUID>(getConditionType()) {
+				@Override
+				public UUID readElement(DataBuffer buffer) {
+					return buffer.readUUID();
+				}
+
+				@Override
+				public void writeElement(UUID obj, DataBuffer buffer) {
+					buffer.writeUUID(obj);
+				}
+
+				@Override
+				public EventConditions getCondition() {
+					return GILDE_UUID;
+				}
+			};
+		}
+
+		@Override
+		public Class<UUID> getConditionType() {
+			return UUID.class;
+		}
 	};
 	
 	public abstract EventCondition createCondition();

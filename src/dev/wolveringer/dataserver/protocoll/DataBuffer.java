@@ -65,10 +65,17 @@ public class DataBuffer extends ByteBuf {
 	}
 
 	public UUID readUUID() {
-		return new UUID(readLong(), readLong());
+		long high = readLong();
+		if(high == -1)
+			return null;
+		return new UUID(high, readLong());
 	}
 
 	public DataBuffer writeUUID(UUID uuid) {
+		if(uuid == null){
+			writeLong(-1);
+			return this;
+		}
 		writeLong(uuid.getMostSignificantBits());
 		writeLong(uuid.getLeastSignificantBits());
 		return this;
