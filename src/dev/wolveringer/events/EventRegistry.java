@@ -4,12 +4,17 @@ import java.lang.reflect.Constructor;
 
 import dev.wolveringer.dataserver.protocoll.DataBuffer;
 import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
+import dev.wolveringer.events.gilde.GildePermissionEvent;
+import dev.wolveringer.events.gilde.GildePlayerEvent;
+import dev.wolveringer.events.gilde.GildePropertiesUpdate;
 import dev.wolveringer.events.player.PlayerServerSwitchEvent;
 
 public class EventRegistry {
+	@SuppressWarnings("unchecked")
 	private static Constructor<? extends Event> events[] = new Constructor[256];
 	
 	public static boolean client = false;
+	private static int idsIndex = 0;
 	
 	public static Event createEvent(int id, DataBuffer buffer) {
 		try {
@@ -37,9 +42,9 @@ public class EventRegistry {
 		return -1;
 	}
 	
-	protected static void registerEvent(int id,Class<? extends Event> packet){
+	protected static void registerEvent(Class<? extends Event> packet){
 		try {
-			events[id] = packet.getConstructors().length == 1 ? (Constructor<? extends Event>) packet.getConstructors()[0] : packet.getConstructor();
+			events[idsIndex++] = packet.getConstructors().length == 1 ? (Constructor<? extends Event>) packet.getConstructors()[0] : packet.getConstructor();
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
@@ -48,7 +53,10 @@ public class EventRegistry {
 	}
 	
 	static {
-		registerEvent(0x00, PlayerServerSwitchEvent.class);
-		registerEvent(0x01, BoosterStatusChangeEvent.class);
+		registerEvent(PlayerServerSwitchEvent.class);
+		registerEvent(BoosterStatusChangeEvent.class);
+		registerEvent(GildePermissionEvent.class);
+		registerEvent(GildePlayerEvent.class);
+		registerEvent(GildePropertiesUpdate.class);
 	}
 }

@@ -4,5 +4,10 @@ public enum GildeType {
 	VERSUS,
 	ARCADE,
 	SKY,
-	PVP;
+	PVP,
+	ALL;
+	
+	public static GildeType[] getPossibleValues(){
+		return new GildeType[]{VERSUS,ARCADE,SKY,PVP};
+	}
 }
