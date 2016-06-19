@@ -6,8 +6,10 @@ import dev.wolveringer.events.Event;
 import dev.wolveringer.events.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class BoosterStatusChangeEvent extends Event{
 	private BoosterType boosterType;
@@ -15,13 +17,13 @@ public class BoosterStatusChangeEvent extends Event{
 	
 	@Override
 	public void read(DataBuffer buff) {
-		buff.writeEnum(boosterType);
-		buff.writeBoolean(active);
+		boosterType = buff.readEnum(BoosterType.class);
+		active = buff.readBoolean();
 	}
 	@Override
 	public void write(DataBuffer buff) {
-		boosterType = buff.readEnum(BoosterType.class);
-		active = buff.readBoolean();
+		buff.writeEnum(boosterType);
+		buff.writeBoolean(active);
 	}
 	@Override
 	public EventType getType() {
