@@ -24,7 +24,7 @@ public class DataBuffer extends ByteBuf {
 
 	public DataBuffer(DataInputStream stream) throws IOException {
 		handle = Unpooled.buffer(stream.available());
-		
+
 		byte[] buffer = new byte[8192];
 		int bytesRead;
 		while ((bytesRead = stream.read(buffer)) != -1) {
@@ -44,11 +44,12 @@ public class DataBuffer extends ByteBuf {
 		int length = readInt();
 		if (length == -1)
 			return null;
-		if(length < 0 || length>1073741824){
+		if (length < 0 || length > 65536) {
 			System.err.println("To long string length?!");
+			throw new RuntimeException("Invalid String length ("+length+" > 65536)");
 		}
 		char[] buffer = new char[length];
-		for(int i = 0;i<buffer.length;i++)
+		for (int i = 0; i < buffer.length; i++)
 			buffer[i] = (char) readShort();
 		return new String(buffer);
 	}
@@ -57,7 +58,7 @@ public class DataBuffer extends ByteBuf {
 		if (s != null) {
 			char[] length = s.toCharArray();
 			writeInt(length.length);
-			for(char c : length)
+			for (char c : length)
 				writeShort(c);
 		} else
 			writeInt(-1);
@@ -66,13 +67,13 @@ public class DataBuffer extends ByteBuf {
 
 	public UUID readUUID() {
 		long high = readLong();
-		if(high == -1)
+		if (high == -1)
 			return null;
 		return new UUID(high, readLong());
 	}
 
 	public DataBuffer writeUUID(UUID uuid) {
-		if(uuid == null){
+		if (uuid == null) {
 			writeLong(-1);
 			return this;
 		}
@@ -80,9 +81,9 @@ public class DataBuffer extends ByteBuf {
 		writeLong(uuid.getLeastSignificantBits());
 		return this;
 	}
-	
-	public void writeNBTTag(NBTTagCompound nbt){
-		if(nbt == null)
+
+	public void writeNBTTag(NBTTagCompound nbt) {
+		if (nbt == null)
 			writeInt(-1);
 		try {
 			byte[] bytes = NBTCompressedStreamTools.toByte(nbt);
@@ -92,10 +93,10 @@ public class DataBuffer extends ByteBuf {
 			e.printStackTrace();
 		}
 	}
-	
-	public NBTTagCompound readNBTTag(){
+
+	public NBTTagCompound readNBTTag() {
 		int length = readInt();
-		if(length == -1)
+		if (length == -1)
 			return null;
 		byte[] data = readBytes(length).array();
 		try {
@@ -106,14 +107,14 @@ public class DataBuffer extends ByteBuf {
 		return null;
 	}
 
-	public <T> T readEnum(Class<T> clazz){
-		return (T) ((Enum[])clazz.getEnumConstants())[readInt()];
+	public <T> T readEnum(Class<T> clazz) {
+		return (T) ((Enum[]) clazz.getEnumConstants())[readInt()];
 	}
-	
-	public void writeEnum(Enum e){
+
+	public void writeEnum(Enum e) {
 		writeInt(e.ordinal());
 	}
-	
+
 	public ByteBufAllocator alloc() {
 		return handle.alloc();
 	}

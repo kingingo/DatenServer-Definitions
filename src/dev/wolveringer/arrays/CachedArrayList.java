@@ -219,28 +219,38 @@ public class CachedArrayList<E> extends ArrayList<E> {
 	}
 
 	private void updateTimes() {
-		long min = Long.MAX_VALUE;
-		long time = System.currentTimeMillis();
-		HashMap<E, Long> ctimes  = new HashMap<>(times);
-		for (E e : ctimes.keySet()) {
-			long l = ctimes.get(e);
-			if (time > l){
-				boolean alowed = true;
-				for(UnloadListener<E> listener : new ArrayList<>(listener))
-					if(listener != null)
-						if(!listener.canUnload(e))
-							alowed = false;
-				if(alowed)
-					super.remove(e);
-				else{
-					resetTime(e);
-					l = ctimes.get(e);
+		try{
+			long min = Long.MAX_VALUE;
+			long time = System.currentTimeMillis();
+			HashMap<E, Long> ctimes  = new HashMap<>(times);
+			for (E e : ctimes.keySet()) {
+				long l = ctimes.get(e);
+				if (time > l){
+					boolean alowed = true;
+					for(UnloadListener<E> listener : new ArrayList<>(listener))
+						if(listener != null)
+							if(!listener.canUnload(e))
+								alowed = false;
+					if(alowed){
+						remove(e);
+					}
+					else{
+						resetTime(e);
+						l = ctimes.get(e);
+					}
 				}
+				else if (l < min)
+					min = l;
 			}
-			else if (l < min)
-				min = l;
+			nextUpdate = min;
+		}catch(Exception ex){
+			try{
+				System.out.println("Times: "+times);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			ex.printStackTrace();
 		}
-		nextUpdate = min;
 	}
 	
 	@Override
