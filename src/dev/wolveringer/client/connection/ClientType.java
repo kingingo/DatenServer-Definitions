@@ -6,5 +6,6 @@ public enum ClientType {
 	ACARDE,
 	OTHER,
 	ALL;
+	
 	private ClientType() {}
 }
