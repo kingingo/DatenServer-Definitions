@@ -10,7 +10,8 @@ public enum ServerType {
 	BUNGEECORD("bungeecord"),
 	GAME("game"),
 	ALL("all"),
-	CREATIVE("creative");
+	CREATIVE("creative"),
+	TEAMSPEAK("teamspeak");
 
 	@Getter
 	private String name;

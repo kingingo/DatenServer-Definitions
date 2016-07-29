@@ -55,7 +55,9 @@ public enum StatsKey {
 	GUNGAME_TIME("gungameTime int","gungameTime","GunGameTime",true,int.class),
 	GAME_TIME("gameTime int","gameTime","GameTime",true,int.class),
 	CREATIVE_TIME("creativeTime int","creativeTime","creativeTime",true,int.class),
-	WARZ_TIME("warzTime int","warzTime","warzTime",true,int.class);
+	WARZ_TIME("warzTime int","warzTime","warzTime",true,int.class),
+	TEAMSPEAK_IDENTITY("identity text","identity","identity",true,String.class),
+	TEAMSPEAK_PROPERTIES("properties text","properties","properties",true,String.class);
 	
 	@Getter
 	private String mySQLSyntax;

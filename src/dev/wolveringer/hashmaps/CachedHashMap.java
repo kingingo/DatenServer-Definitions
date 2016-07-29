@@ -1,5 +1,6 @@
 package dev.wolveringer.hashmaps;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,13 +10,42 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import dev.wolveringer.arrays.CachedArrayList;
+import dev.wolveringer.arrays.CachedArrayList.UnloadListener;
+import lombok.Getter;
 
 public class CachedHashMap<K,V> extends HashMap<K, V> {
 	private CachedArrayList<K> keys;
 	private boolean locked = false;
+	private ArrayList<UnloadListener<Entry<K, V>>> listener = new ArrayList<>(); 
 	
 	public CachedHashMap(int defautTime, TimeUnit defaultTimeUnit) {
 		keys = new CachedArrayList<>(defautTime, defaultTimeUnit);
+		keys.addUnloadListener(new UnloadListener<K>() {
+			@Override
+			public boolean canUnload(K element) {
+				boolean alowed = true;
+				for(UnloadListener<Entry<K, V>> listener : new ArrayList<>(listener))
+					if(listener != null)
+						if(!listener.canUnload(new Entry<K, V>() {
+							@Override
+							public K getKey() {
+								return element;
+							}
+
+							@Override
+							public V getValue() {
+								return CachedHashMap.this.get0(element);
+							}
+
+							@Override
+							public V setValue(V value) {
+								return getValue();
+							}
+						}))
+							alowed = false;
+				return alowed;
+			}
+		});
 	}
 	
 	@Override
@@ -40,6 +70,10 @@ public class CachedHashMap<K,V> extends HashMap<K, V> {
 				super.remove(key);
 			}
 		return out;
+	}
+	
+	protected V get0(Object key) {
+		return super.get(key);
 	}
 	
 	@Override
@@ -94,7 +128,19 @@ public class CachedHashMap<K,V> extends HashMap<K, V> {
 		locked = true;
 		keys.update();
 	}
+	
+	public void resetTime(K key){
+		keys.resetTime(key);
+	}
+	
 	public void unlock(){
 		locked = false;
+	}
+	
+	public void addUnloadListener(UnloadListener<Entry<K, V>> listener){
+		this.listener.add(listener);
+	}
+	public void removeUnloadListener(UnloadListener<Entry<K, V>> listener){
+		this.listener.remove(listener);
 	}
 }

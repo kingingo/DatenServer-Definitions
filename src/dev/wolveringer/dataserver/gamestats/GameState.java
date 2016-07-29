@@ -1,7 +1,16 @@
 package dev.wolveringer.dataserver.gamestats;
 
 public enum GameState {
-	Laden("Laden"), LobbyPhase("LobbyPhase"), SchutzModus("SchutzModus"), DeathMatch("DeathMatch"), StartDeathMatch("StartDeathMatch"), StartGame("StartGame"), InGame("InGame"), Restart("Restart"), MultiGame("MultiGame"), NONE("NONE");
+	Laden("Laden"),
+	LobbyPhase("LobbyPhase"),
+	SchutzModus("SchutzModus"),
+	DeathMatch("DeathMatch"),
+	StartDeathMatch("StartDeathMatch"),
+	StartGame("StartGame"),
+	InGame("InGame"),
+	Restart("Restart"),
+	MultiGame("MultiGame"),
+	NONE("NONE");
 
 	String state;
 

@@ -19,7 +19,7 @@ public class CachedArrayList<E> extends ArrayList<E> {
 	private int defautTime;
 	private TimeUnit defaultTimeUnit = TimeUnit.MILLISECONDS;
 
-	private HashMap<E, Long> times = new HashMap<>();
+	private CopyOnWriteMap<E, Long> times = new CopyOnWriteMap<>();
 
 	private ArrayList<UnloadListener<E>> listener = new ArrayList<>(); 
 	
@@ -222,7 +222,8 @@ public class CachedArrayList<E> extends ArrayList<E> {
 		try{
 			long min = Long.MAX_VALUE;
 			long time = System.currentTimeMillis();
-			HashMap<E, Long> ctimes  = new HashMap<>(times);
+			HashMap<E, Long> ctimes;
+			ctimes = new HashMap<>(times);
 			for (E e : ctimes.keySet()) {
 				long l = ctimes.get(e);
 				if (time > l){
@@ -232,7 +233,7 @@ public class CachedArrayList<E> extends ArrayList<E> {
 							if(!listener.canUnload(e))
 								alowed = false;
 					if(alowed){
-						remove(e);
+						super.remove(e);
 					}
 					else{
 						resetTime(e);

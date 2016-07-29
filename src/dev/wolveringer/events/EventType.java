@@ -5,6 +5,7 @@ import dev.wolveringer.events.gilde.GildePermissionEvent;
 import dev.wolveringer.events.gilde.GildePlayerEvent;
 import dev.wolveringer.events.gilde.GildePropertiesUpdate;
 import dev.wolveringer.events.player.PlayerServerSwitchEvent;
+import dev.wolveringer.events.teamspeak.TeamspeakLinkRequestEvent;
 import lombok.Getter;
 
 public enum EventType {
@@ -12,7 +13,8 @@ public enum EventType {
 	BOOSTER_SWITCH(BoosterStatusChangeEvent.class,EventConditions.BOOSTER_TYPE),
 	GILDE_PLAYER_UPDATE(GildePlayerEvent.class,EventConditions.GILDE_UUID),
 	GILDE_PERMISSION_UPDATE(GildePermissionEvent.class,EventConditions.GILDE_UUID),
-	GILDE_PROPERTIES_UPDATE(GildePropertiesUpdate.class,EventConditions.GILDE_UUID);
+	GILDE_PROPERTIES_UPDATE(GildePropertiesUpdate.class,EventConditions.GILDE_UUID),
+	TEAMSPEAK_LINK_REQUEST(TeamspeakLinkRequestEvent.class,EventConditions.PLAYERS_BACKLIST,EventConditions.PLAYERS_WHITELIST);
 	
 	@Getter
 	private EventConditions[] avariableConditions;
