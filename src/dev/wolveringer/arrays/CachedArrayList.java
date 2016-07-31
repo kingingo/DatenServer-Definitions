@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class CachedArrayList<E> extends ArrayList<E> {
@@ -224,21 +225,21 @@ public class CachedArrayList<E> extends ArrayList<E> {
 			long time = System.currentTimeMillis();
 			HashMap<E, Long> ctimes;
 			ctimes = new HashMap<>(times);
-			for (E e : ctimes.keySet()) {
-				long l = ctimes.get(e);
+			for (Map.Entry<E, Long> entry : ctimes.entrySet()) {
+				long l = entry.getValue();
 				if (time > l){
-					boolean alowed = true;
-					for(UnloadListener<E> listener : new ArrayList<>(listener))
+					boolean allowed = true;
+					E e = entry.getKey();
+					for(UnloadListener<E> listener : new ArrayList<>(this.listener))
 						if(listener != null)
 							if(!listener.canUnload(e))
-								alowed = false;
-					if(alowed){
+								allowed = false;
+					if(allowed){
 						super.remove(e);
 						times.remove(e);
 					}
 					else{
 						resetTime(e);
-						l = ctimes.get(e);
 					}
 				}
 				else if (l < min)
