@@ -234,6 +234,7 @@ public class CachedArrayList<E> extends ArrayList<E> {
 								alowed = false;
 					if(alowed){
 						super.remove(e);
+						times.remove(e);
 					}
 					else{
 						resetTime(e);
