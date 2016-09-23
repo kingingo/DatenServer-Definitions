@@ -17,6 +17,8 @@ public class GildePropertiesUpdate extends Event{
 	public static enum Property {
 		NAME,
 		SHORT_NAME,
+		DELETE,
+		CREATE,
 		COSTUM_DATA,
 		ACTIVE_GILD_SECTION,
 		DEACTIVE_GILD_SECTION;

@@ -7,6 +7,7 @@ import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
 import dev.wolveringer.events.gilde.GildePermissionEvent;
 import dev.wolveringer.events.gilde.GildePlayerEvent;
 import dev.wolveringer.events.gilde.GildePropertiesUpdate;
+import dev.wolveringer.events.gilde.GildeUpdateEvent;
 import dev.wolveringer.events.player.PlayerServerSwitchEvent;
 import dev.wolveringer.events.teamspeak.TeamspeakLinkRequestEvent;
 
@@ -59,6 +60,7 @@ public class EventRegistry {
 		registerEvent(GildePermissionEvent.class);
 		registerEvent(GildePlayerEvent.class);
 		registerEvent(GildePropertiesUpdate.class);
+		registerEvent(GildeUpdateEvent.class);
 		registerEvent(TeamspeakLinkRequestEvent.class);
 	}
 }

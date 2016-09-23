@@ -30,6 +30,7 @@ public enum PermissionType {
 	PERMISSION("epicpvp.bg.permission"),
 	TBUILD_SERVER("epicpvp.bg.tbuild.server"),
 	BUILD_SERVER("epicpvp.bg.build.server"),
+	WARZ_SERVER("epicpvp.bg.warz.server"),
 	NICK_SEE("epicpvp.bg.nick.see"),
 	NICK_RANDOM("epicpvp.bg.nick.random"),
 	NICK_SET("epicpvp.bg.nick.set"),
