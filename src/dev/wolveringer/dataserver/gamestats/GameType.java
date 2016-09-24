@@ -11,7 +11,7 @@ public enum GameType {
 	TEAMSTATS_VERSUS(false,"teams_versus","teams_versus",ServerType.GAME,new StatsKey[] {StatsKey.KILLS,StatsKey.DEATHS,StatsKey.WIN,StatsKey.LOSE,StatsKey.MONEY},false, null),
 	TEAMSTATS_PVP(false,"teams_pvp","teams_pvp",ServerType.PVP,new StatsKey[] {StatsKey.KILLS,StatsKey.DEATHS,StatsKey.MONEY},false, null),
 	TEAMSTATS_SKYBLOCK(false,"teams_skyblock","teams_skyblock",ServerType.SKYBLOCK,new StatsKey[] {StatsKey.KILLS,StatsKey.DEATHS,StatsKey.MONEY},false, null),
-	TEAMSTATS_WARZ(false,"teams_warz","teams_warz",ServerType.WARZ,new StatsKey[] {StatsKey.KILLS,StatsKey.DEATHS,StatsKey.MONEY},false, null),
+	TEAMSTATS_WARZ(false,"teams_warz","teams_warz",ServerType.WARZ,new StatsKey[] {StatsKey.KILLS,StatsKey.DEATHS,StatsKey.MONEY, StatsKey.ANIMAL_KILLS, StatsKey.ANIMAL_DEATHS, StatsKey.MONSTER_KILLS, StatsKey.MONSTER_DEATHS },false, null),
 	
 	GUNGAME(true, "GunGame-Server", "GunGame", ServerType.GUNGAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true, TEAMSTATS_ACARDE),
 	SurvivalGames1vs1(false, "SurvivalGames1vs1", "SG1vs1", ServerType.GAME, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.WIN, StatsKey.LOSE },true, TEAMSTATS_VERSUS),
