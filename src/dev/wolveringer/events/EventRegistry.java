@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 
 import dev.wolveringer.dataserver.protocoll.DataBuffer;
 import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
+import dev.wolveringer.events.gilde.GildeMoneyChangeEvent;
 import dev.wolveringer.events.gilde.GildePermissionEvent;
 import dev.wolveringer.events.gilde.GildePlayerEvent;
 import dev.wolveringer.events.gilde.GildePropertiesUpdate;
@@ -61,6 +62,7 @@ public class EventRegistry {
 		registerEvent(GildePlayerEvent.class);
 		registerEvent(GildePropertiesUpdate.class);
 		registerEvent(GildeUpdateEvent.class);
+		registerEvent(GildeMoneyChangeEvent.class);
 		registerEvent(TeamspeakLinkRequestEvent.class);
 	}
 }

@@ -1,13 +1,13 @@
 package dev.wolveringer.gilde;
 
 import dev.wolveringer.dataserver.gamestats.GameType;
-import dev.wolveringer.dataserver.gamestats.StatsKey;
 
 public enum GildeType {
 	VERSUS("Versus",GameType.TEAMSTATS_VERSUS),
 	ARCADE("Arcade",GameType.TEAMSTATS_ACARDE),
 	SKY("Sky",GameType.TEAMSTATS_SKYBLOCK),
 	PVP("PvP",GameType.TEAMSTATS_PVP),
+	WARZ("WarZ",GameType.TEAMSTATS_WARZ),
 	ALL("All[ERROR]",null);
 	
 	
@@ -29,6 +29,6 @@ public enum GildeType {
 	}
 	
 	public static GildeType[] getPossibleValues(){
-		return new GildeType[]{VERSUS,ARCADE,SKY,PVP};
+		return new GildeType[]{VERSUS,ARCADE,SKY,PVP,WARZ};
 	}
 }
