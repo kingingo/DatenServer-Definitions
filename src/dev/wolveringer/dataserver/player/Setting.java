@@ -7,5 +7,6 @@ public enum Setting {
 	LANGUAGE,
 	UUID,
 	CURRUNT_IP,
-	NICKNAME;
+	NICKNAME,
+	LAST_PASSWORD_CHANGED;
 }

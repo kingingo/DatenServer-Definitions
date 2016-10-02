@@ -82,9 +82,11 @@ public class DataBuffer extends ByteBuf {
 		return this;
 	}
 
-	public void writeNBTTag(NBTTagCompound nbt) {
-		if (nbt == null)
+	public DataBuffer writeNBTTag(NBTTagCompound nbt) {
+		if (nbt == null){
 			writeInt(-1);
+			return this;
+		}
 		try {
 			byte[] bytes = NBTCompressedStreamTools.toByte(nbt);
 			writeInt(bytes.length);
@@ -92,6 +94,7 @@ public class DataBuffer extends ByteBuf {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return this;
 	}
 
 	public NBTTagCompound readNBTTag() {

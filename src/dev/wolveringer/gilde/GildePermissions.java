@@ -19,6 +19,31 @@ public enum GildePermissions {
 			"gild.member.edit",
 			"display.Member editieren",
 			new DisplayItem(278, 0, "§aMember editieren", null)),
+	MEMBER_ACCEPT(
+			new GildeType[] { GildeType.ALL },
+			"gild.member.accept",
+			"display.Accept a membership request",
+			new DisplayItem(278, 0, "§aAccept a membership request", null)),
+	MEMBER_KICK(
+			new GildeType[] { GildeType.ALL },
+			"gild.member.kick",
+			"display.Kick a member",
+			new DisplayItem(278, 0, "§aKick a member", null)),
+	MEMBER_GROUP_CHANGE(
+			new GildeType[] { GildeType.ALL },
+			"gild.member.group.change",
+			"display.Change mebers group",
+			new DisplayItem(278, 0, "§aChange mebers group", null)),
+	GROUP_EDIT_PERMISSIONS(
+			new GildeType[] { GildeType.ALL },
+			"gild.group.change.permission",
+			"display.Change group permissions",
+			new DisplayItem(278, 0, "§aChange group permissions", null)),
+	GROUP_CREATE_NEW(
+			new GildeType[] { GildeType.ALL },
+			"gild.group.create",
+			"display.Create a new group",
+			new DisplayItem(278, 0, "§aCreate a new group", null)),
 	BANK_DEPOSIT(
 			new GildeType[] { GildeType.ALL },
 			"gild.bank.deposit",
@@ -70,6 +95,7 @@ public enum GildePermissions {
 		for (GildePermissions p : values())
 			if (p.permission.equalsIgnoreCase(perm))
 				return p;
+		System.err.println("Cant find permission "+perm);
 		return GildePermissions.UNDEFINED;
 	}
 }
