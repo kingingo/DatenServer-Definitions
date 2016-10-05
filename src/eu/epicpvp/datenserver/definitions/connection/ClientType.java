@@ -1,4 +1,4 @@
-package dev.wolveringer.client.connection;
+package eu.epicpvp.datenserver.definitions.connection;
 
 public enum ClientType {
 	BUNGEECORD,

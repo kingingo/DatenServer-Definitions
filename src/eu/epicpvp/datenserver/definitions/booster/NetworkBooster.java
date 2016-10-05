@@ -1,4 +1,4 @@
-package dev.wolveringer.booster;
+package eu.epicpvp.datenserver.definitions.booster;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

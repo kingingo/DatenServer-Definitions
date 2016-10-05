@@ -1,4 +1,4 @@
-package dev.wolveringer.events;
+package eu.epicpvp.datenserver.definitions.events;
 
 public interface ConditionChangeListener<T> {
 	public void onValueAdd(EventCondition con,T obj);

@@ -1,4 +1,4 @@
-package dev.wolveringer.hashmaps;
+package eu.epicpvp.datenserver.definitions.hashmaps;
 
 import java.util.HashMap;
 

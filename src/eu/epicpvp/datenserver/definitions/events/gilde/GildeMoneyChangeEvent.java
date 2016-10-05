@@ -1,12 +1,12 @@
-package dev.wolveringer.events.gilde;
+package eu.epicpvp.datenserver.definitions.events.gilde;
 
 import java.util.UUID;
 
 import eu.epicpvp.datenserver.definitions.dataserver.protocoll.DataBuffer;
-import dev.wolveringer.events.Event;
-import dev.wolveringer.events.EventType;
-import dev.wolveringer.gilde.GildeType;
-import dev.wolveringer.gilde.MoneyLogRecord;
+import eu.epicpvp.datenserver.definitions.events.Event;
+import eu.epicpvp.datenserver.definitions.events.EventType;
+import eu.epicpvp.datenserver.definitions.gilde.GildeType;
+import eu.epicpvp.datenserver.definitions.gilde.MoneyLogRecord;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

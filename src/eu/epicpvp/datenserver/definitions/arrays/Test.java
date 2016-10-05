@@ -1,4 +1,4 @@
-package dev.wolveringer.arrays;
+package eu.epicpvp.datenserver.definitions.arrays;
 
 import java.util.concurrent.TimeUnit;
 

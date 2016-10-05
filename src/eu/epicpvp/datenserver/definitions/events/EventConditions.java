@@ -1,9 +1,9 @@
-package dev.wolveringer.events;
+package eu.epicpvp.datenserver.definitions.events;
 
 import java.util.UUID;
 
-import dev.wolveringer.booster.BoosterType;
-import dev.wolveringer.client.connection.ClientType;
+import eu.epicpvp.datenserver.definitions.booster.BoosterType;
+import eu.epicpvp.datenserver.definitions.connection.ClientType;
 import eu.epicpvp.datenserver.definitions.dataserver.gamestats.GameType;
 import eu.epicpvp.datenserver.definitions.dataserver.gamestats.StatsKey;
 import eu.epicpvp.datenserver.definitions.dataserver.protocoll.DataBuffer;

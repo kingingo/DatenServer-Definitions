@@ -1,4 +1,4 @@
-package dev.wolveringer.bukkit.permissions;
+package eu.epicpvp.datenserver.definitions.permissions;
 
 public enum GroupTyp {
 	ALL("all"), GAME("game"), PVP("pvp"), SKY("sky"), WARZ("warz"), CREATIVE("creative");

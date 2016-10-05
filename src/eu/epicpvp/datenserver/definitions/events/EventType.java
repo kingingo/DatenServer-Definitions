@@ -1,13 +1,13 @@
-package dev.wolveringer.events;
+package eu.epicpvp.datenserver.definitions.events;
 
-import dev.wolveringer.events.booster.BoosterStatusChangeEvent;
-import dev.wolveringer.events.gilde.GildeMoneyChangeEvent;
-import dev.wolveringer.events.gilde.GildePermissionEvent;
-import dev.wolveringer.events.gilde.GildePlayerEvent;
-import dev.wolveringer.events.gilde.GildePropertiesUpdate;
-import dev.wolveringer.events.gilde.GildeUpdateEvent;
-import dev.wolveringer.events.player.PlayerServerSwitchEvent;
-import dev.wolveringer.events.teamspeak.TeamspeakLinkRequestEvent;
+import eu.epicpvp.datenserver.definitions.events.booster.BoosterStatusChangeEvent;
+import eu.epicpvp.datenserver.definitions.events.gilde.GildeMoneyChangeEvent;
+import eu.epicpvp.datenserver.definitions.events.gilde.GildePermissionEvent;
+import eu.epicpvp.datenserver.definitions.events.gilde.GildePlayerEvent;
+import eu.epicpvp.datenserver.definitions.events.gilde.GildePropertiesUpdate;
+import eu.epicpvp.datenserver.definitions.events.gilde.GildeUpdateEvent;
+import eu.epicpvp.datenserver.definitions.events.player.PlayerServerSwitchEvent;
+import eu.epicpvp.datenserver.definitions.events.teamspeak.TeamspeakLinkRequestEvent;
 import lombok.Getter;
 
 public enum EventType {

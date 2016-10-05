@@ -1,4 +1,4 @@
-package dev.wolveringer.skin;
+package eu.epicpvp.datenserver.definitions.skin;
 
 import java.lang.reflect.Type;
 import java.util.Iterator;

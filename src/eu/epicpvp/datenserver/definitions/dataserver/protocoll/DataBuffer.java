@@ -11,9 +11,9 @@ import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
 import java.util.UUID;
 
-import dev.wolveringer.nbt.NBTCompressedStreamTools;
-import dev.wolveringer.nbt.NBTReadLimiter;
-import dev.wolveringer.nbt.NBTTagCompound;
+import eu.epicpvp.nbt.NBTCompressedStreamTools;
+import eu.epicpvp.nbt.NBTReadLimiter;
+import eu.epicpvp.nbt.NBTTagCompound;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.ByteBufProcessor;

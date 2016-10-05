@@ -1,4 +1,4 @@
-package dev.wolveringer.gilde;
+package eu.epicpvp.datenserver.definitions.gilde;
 
 import eu.epicpvp.datenserver.definitions.dataserver.gamestats.GameType;
 

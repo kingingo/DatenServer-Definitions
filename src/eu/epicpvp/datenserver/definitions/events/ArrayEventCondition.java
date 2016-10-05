@@ -1,4 +1,4 @@
-package dev.wolveringer.events;
+package eu.epicpvp.datenserver.definitions.events;
 
 import java.util.ArrayList;
 

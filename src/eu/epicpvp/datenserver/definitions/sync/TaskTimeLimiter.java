@@ -1,4 +1,4 @@
-package dev.wolveringer.sync;
+package eu.epicpvp.datenserver.definitions.sync;
 
 public class TaskTimeLimiter {
 	private Thread handleThread;

@@ -1,17 +1,15 @@
-package dev.wolveringer.hashmaps;
+package eu.epicpvp.datenserver.definitions.hashmaps;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import dev.wolveringer.arrays.CachedArrayList;
-import dev.wolveringer.arrays.CachedArrayList.UnloadListener;
-import lombok.Getter;
+import eu.epicpvp.datenserver.definitions.arrays.CachedArrayList;
+import eu.epicpvp.datenserver.definitions.arrays.CachedArrayList.UnloadListener;
 
 public class CachedHashMap<K,V> extends HashMap<K, V> {
 	private CachedArrayList<K> keys;

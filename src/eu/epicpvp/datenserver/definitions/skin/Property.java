@@ -1,4 +1,4 @@
-package dev.wolveringer.skin;
+package eu.epicpvp.datenserver.definitions.skin;
 
 public class Property {
 	private final String name;

@@ -1,8 +1,6 @@
-package dev.wolveringer.hashmaps;
+package eu.epicpvp.datenserver.definitions.hashmaps;
 
 import java.util.concurrent.TimeUnit;
-
-import dev.wolveringer.arrays.CachedArrayList;
 
 public class Test {
 	public static void main(String[] args) {

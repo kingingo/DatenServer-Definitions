@@ -1,4 +1,4 @@
-package dev.wolveringer.bukkit.permissions;
+package eu.epicpvp.datenserver.definitions.permissions;
 
 public enum PermissionType {
 	ALL_PERMISSION("epicpvp.*"),

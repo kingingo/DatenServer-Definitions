@@ -1,6 +1,6 @@
-package dev.wolveringer.sync;
+package eu.epicpvp.datenserver.definitions.sync;
 
-import dev.wolveringer.unsave.ReflectUnsave;
+import eu.epicpvp.datenserver.definitions.unsave.ReflectUnsave;
 import lombok.Getter;
 
 public class WaitForObject {
