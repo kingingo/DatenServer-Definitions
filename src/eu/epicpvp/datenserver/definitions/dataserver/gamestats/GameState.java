@@ -1,25 +1,19 @@
 package eu.epicpvp.datenserver.definitions.dataserver.gamestats;
 
 public enum GameState {
-	Laden("Laden"),
-	LobbyPhase("LobbyPhase"),
-	SchutzModus("SchutzModus"),
-	DeathMatch("DeathMatch"),
-	StartDeathMatch("StartDeathMatch"),
-	StartGame("StartGame"),
-	InGame("InGame"),
-	Restart("Restart"),
-	MultiGame("MultiGame"),
-	NONE("NONE");
-
-	String state;
-
-	private GameState(String state) {
-		this.state = state;
-	}
+	Laden,
+	LobbyPhase,
+	SchutzModus,
+	DeathMatch,
+	StartDeathMatch,
+	StartGame,
+	InGame,
+	Restart,
+	MultiGame,
+	NONE;
 
 	public String string() {
-		return state;
+		return toString();
 	}
 
 }
