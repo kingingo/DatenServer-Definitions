@@ -42,8 +42,9 @@ public enum GameType {
 	TIME(false,"time","time",ServerType.ALL,new StatsKey[]{StatsKey.SKY_TIME,StatsKey.PVP_TIME,StatsKey.GUNGAME_TIME,StatsKey.GAME_TIME,StatsKey.CREATIVE_TIME,StatsKey.WARZ_TIME},false,null),
 	SideWar(false,"SideWar","SWAR",ServerType.GAME,new StatsKey[]{StatsKey.KILLS,StatsKey.DEATHS,StatsKey.WIN,StatsKey.LOSE},true, TEAMSTATS_ACARDE),
 	CREATIVE(true, "Creative-Server", "Creative", ServerType.CREATIVE, new StatsKey[] { StatsKey.KILLS, StatsKey.DEATHS, StatsKey.LEVEL },true, null),
-	TEAMSPEAK(false, "Teamspeak", "teamspeak", ServerType.TEAMSPEAK, new StatsKey[] { StatsKey.TEAMSPEAK_IDENTITY, StatsKey.TEAMSPEAK_PROPERTIES },true, null);
-
+	TEAMSPEAK(false, "Teamspeak", "teamspeak", ServerType.TEAMSPEAK, new StatsKey[] { StatsKey.TEAMSPEAK_IDENTITY, StatsKey.TEAMSPEAK_PROPERTIES },true, null),
+	TWITTER(false, "Twitter", "twitter", ServerType.TWITTER, new StatsKey[] { StatsKey.TWITTER_ID },true, null);
+	
 	private boolean solo = true;
 	private String typ;
 	private String shortName;

@@ -57,7 +57,8 @@ public enum StatsKey {
 	CREATIVE_TIME("creativeTime int","creativeTime","creativeTime",true,int.class),
 	WARZ_TIME("warzTime int","warzTime","warzTime",true,int.class),
 	TEAMSPEAK_IDENTITY("identity text","identity","identity",true,String.class),
-	TEAMSPEAK_PROPERTIES("properties text","properties","properties",true,String.class);
+	TEAMSPEAK_PROPERTIES("properties text","properties","properties",true,String.class),
+	TWITTER_ID("twitter int","twitter","twitter",true,int.class);
 
 	@Getter
 	private String mySQLSyntax;

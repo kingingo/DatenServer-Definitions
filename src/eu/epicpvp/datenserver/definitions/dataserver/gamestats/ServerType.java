@@ -11,7 +11,8 @@ public enum ServerType {
 	GAME("game"),
 	ALL("all"),
 	CREATIVE("creative"),
-	TEAMSPEAK("teamspeak");
+	TEAMSPEAK("teamspeak"),
+	TWITTER("twitter");
 
 	@Getter
 	private String name;
