@@ -21,7 +21,7 @@ public class GildePlayerEvent extends Event{
 	}
 	private UUID gilde;
 	private Action action;
-	private Integer player;
+	private int player;
 	private GildeType gildenType;
 	private String rank;
 
