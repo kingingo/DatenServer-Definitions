@@ -69,6 +69,7 @@ public enum PermissionType {
 	TEAMSPEAK_NICHT_BEWEGEN("epicpvp.ts.nicht_bewegen"),
 	TEAMSPEAK_NICHT_ANSTUPSBART("epicpvp.ts.nicht_anstupsbart"),
 	TEAMSPEAK_NICHT_ANSCHREIBBAR("epicpvp.ts.nicht_anschreibbar"),
+	ANTIBOTS("epicpvp.antibots.manage"),
 
 	NONE("FAIL"), PREMIUM_CHECK("account.premium.check"), BAN_INFO("account.ban.check"), SKIN_ADMIN("account.skin.admin"), COMMAND_WHITELIST("bungee.whitelist");
 
