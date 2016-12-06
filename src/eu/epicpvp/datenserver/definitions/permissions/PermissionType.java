@@ -36,6 +36,7 @@ public enum PermissionType {
 	NICK_SET("epicpvp.bg.nick.set"),
 	PREMIUM_LOBBY("epicpvp.bg.hub.premium"),
 	HUB_MUTE_BYPASS("epicpvp.bg.hub.mute.bypass"),
+	USER_INFO("epicpvp.bg.userinfo"),
 
 	BAN_LVL_1("epicpvp.bg.kban.lvl.one"),
 	BAN_LVL_2("epicpvp.bg.kban.lvl.two"),
@@ -71,7 +72,11 @@ public enum PermissionType {
 	TEAMSPEAK_NICHT_ANSCHREIBBAR("epicpvp.ts.nicht_anschreibbar"),
 	ANTIBOTS("epicpvp.antibots.manage"),
 
-	NONE("FAIL"), PREMIUM_CHECK("account.premium.check"), BAN_INFO("account.ban.check"), SKIN_ADMIN("account.skin.admin"), COMMAND_WHITELIST("bungee.whitelist");
+	NONE("FAIL"),
+	PREMIUM_CHECK("account.premium.check"),
+	BAN_INFO("account.ban.check"),
+	SKIN_ADMIN("account.skin.admin"),
+	COMMAND_WHITELIST("bungee.whitelist");
 
 	public static PermissionType isPerm(String perm) {
 		PermissionType per = PermissionType.NONE;
