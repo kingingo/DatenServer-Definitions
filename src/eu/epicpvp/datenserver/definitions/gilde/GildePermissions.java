@@ -81,7 +81,7 @@ public enum GildePermissions {
 	}
 
 	public static List<GildePermissions> getAvariablePermission(GildeType type) {
-		List<GildePermissions> out = new ArrayList<GildePermissions>();
+		List<GildePermissions> out = new ArrayList<>();
 		for (GildePermissions p : values())
 			for (GildeType t : p.types)
 				if (t == GildeType.ALL || t == type) {

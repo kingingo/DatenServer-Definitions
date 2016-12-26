@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import eu.epicpvp.datenserver.definitions.dataserver.protocoll.DataBuffer;
 
 public abstract class ArrayEventCondition<T> extends SerelizeableEventCondition<T>{
-	private ArrayList<T> elements = new ArrayList<T>();
+	private ArrayList<T> elements = new ArrayList<>();
 	private Class<T> elementType;
 	public ArrayEventCondition(Class<T> elementType) {
 		this.elementType = elementType;
